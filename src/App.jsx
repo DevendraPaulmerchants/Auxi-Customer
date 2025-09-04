@@ -12,7 +12,7 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Suspense fallback={<p>Loading...</p>}>
-          <Header />
+          {/* <Header /> */}
           <Routes>
             <Route path='/' element={<Home/>} />
             <Route path='/login' element={<LogIn />} />

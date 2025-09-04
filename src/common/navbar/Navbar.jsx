@@ -22,7 +22,7 @@ function Navbar() {
                 :
                 <div className='flex gap-4 items-center'>
                     {navItem?.map((item) => (
-                        <NavLink key={item.title} to={item.path} className={(({ isActive }) => `${isActive ? 'bg-sky-200' : ''} hover:bg-sky-200 p-2 rounded text-[#083863] font-semibold`)}>{item.title}</NavLink>
+                        <NavLink key={item.title} to={item.path} className={(({ isActive }) => `${isActive ? 'bg-sky-200' : ''} hover:bg-[var(--bg-color)] p-2 rounded text-[#083863] font-semibold`)}>{item.title}</NavLink>
                     ))}
                 </div>
             }
