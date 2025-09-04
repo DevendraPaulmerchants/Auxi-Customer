@@ -1,0 +1,24 @@
+.css-lbfu2t-JoyMenuButton-root {
+    border: transparent !important;
+}
+
+.css-lbfu2t-JoyMenuButton-root:hover {
+    background: transparent !important;
+}
+
+@keyframes rightToLeft {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.slideRightToLeft {
+    animation: rightToLeft 12s linear infinite;
+}
+.slideRightToLeft:hover {
+    animation-play-state: paused;
+}
