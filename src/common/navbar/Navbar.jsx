@@ -11,7 +11,7 @@ function Navbar() {
         { title: 'Partner With us', path: '/partner_with_us' },
         { title: 'Contact Us', path: '/contact_us' },
         { title: 'Login', path: '/login' },
-        { title: 'Signup', path: '/signup' },
+        { title: 'Signup', path: '/login' },
     ]
     return (
         <div className=''>

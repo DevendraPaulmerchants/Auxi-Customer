@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function Button({children}) {
   return (
-    <button className='text-[16px] py-1 px-16 bg-sky-200 font-semibold text-[var(--primary-color)] px-4 rounded-xl cursor-pointer'>{children}</button>
+    <button className='w-full text-[16px] py-1 px-4 bg-sky-200 font-semibold text-[var(--primary-color)] px-4 rounded-xl cursor-pointer'>{children}</button>
   )
 }
 

@@ -6,6 +6,7 @@ function Input({ type = "text", value = "", setValue }) {
             <input
                 className="w-full outline-none border border-sky-200 px-2 py-1 rounded"
                 type="tel"
+                required
                 inputMode="numeric"
                 pattern="[6-9][0-9]{9}"
                 maxLength={10}
@@ -25,6 +26,7 @@ function Input({ type = "text", value = "", setValue }) {
             <input
                 className="w-full outline-none border border-sky-200 px-2 py-1 rounded"
                 type="email"
+                required
                 placeholder="Enter email address"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
@@ -36,6 +38,7 @@ function Input({ type = "text", value = "", setValue }) {
         <input
             className="w-full outline-none border border-sky-200 px-2 py-1 rounded"
             type="text"
+            required
             placeholder="Enter text"
             value={value}
             onChange={(e) => setValue(e.target.value)}

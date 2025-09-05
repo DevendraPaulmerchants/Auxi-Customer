@@ -1,8 +1,15 @@
 @import "tailwindcss";
+*{
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+}
 
 :root {
   --primary-color: #083863;
-  --bg-color:#BAE6FD;
-  --secondary-color:#666666;
-  --purity-color:#DFAF10;
+  --bg-color: #BAE6FD;
+  --secondary-color: #666666;
+  --purity-color: #DFAF10;
+  --gold-color: #D1A66A;
+  --silver-color: #C0C0C0;
+  --footer-title-color: #FFE1B6;
 }

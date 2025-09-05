@@ -5,6 +5,7 @@ import { Suspense } from 'react'
 import { AuthProvider } from './context/AuthContext'
 import LogIn from './authentication/login/LogIn'
 import Home from './pages/home/Home'
+import Footer from './common/footer/Footer'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
             <Route path='/' element={<Home/>} />
             <Route path='/login' element={<LogIn />} />
           </Routes>
+          <Footer/>
         </Suspense>
       </BrowserRouter>
     </AuthProvider>

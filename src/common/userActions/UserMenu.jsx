@@ -1,20 +1,26 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { TbUserCircle } from 'react-icons/tb';
 import Dropdown from '@mui/joy/Dropdown';
 import Menu from '@mui/joy/Menu';
 import MenuButton from '@mui/joy/MenuButton';
 import MenuItem from '@mui/joy/MenuItem';
+import { AuthContext } from '../../context/AuthContext';
 
 function UserMenu() {
+    const { setIsLogin } = useContext(AuthContext);
+
+    const handleLogOut=()=>{
+setIsLogin(false)
+    }
     return (
         <Dropdown>
             <MenuButton>
-                <TbUserCircle fontSize={28} color='#083863'  />
+                <TbUserCircle fontSize={28} color='#083863' />
             </MenuButton>
             <Menu>
                 <MenuItem>Profile</MenuItem>
                 <MenuItem>Account</MenuItem>
-                <MenuItem >Logout</MenuItem>
+                <MenuItem onClick={()=>handleLogOut()} >Logout</MenuItem>
             </Menu>
         </Dropdown>
     )
