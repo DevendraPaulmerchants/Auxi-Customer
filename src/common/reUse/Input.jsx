@@ -1,11 +1,14 @@
+
 import PropTypes from "prop-types";
 
-function Input({ type = "text", value = "", setValue }) {
+function Input({ type = "text",id='',placeholder='', value = "", setValue }) {
     if (type === "tel") {
         return (
             <input
                 className="w-full outline-none border border-sky-200 px-2 py-1 rounded"
                 type="tel"
+                id={id}
+                autoComplete={type}
                 required
                 inputMode="numeric"
                 pattern="[6-9][0-9]{9}"
@@ -26,6 +29,8 @@ function Input({ type = "text", value = "", setValue }) {
             <input
                 className="w-full outline-none border border-sky-200 px-2 py-1 rounded"
                 type="email"
+                id={id}
+                autoComplete={type}
                 required
                 placeholder="Enter email address"
                 value={value}
@@ -38,8 +43,10 @@ function Input({ type = "text", value = "", setValue }) {
         <input
             className="w-full outline-none border border-sky-200 px-2 py-1 rounded"
             type="text"
+            id={id}
+            autoComplete={type}
             required
-            placeholder="Enter text"
+            placeholder={placeholder}
             value={value}
             onChange={(e) => setValue(e.target.value)}
         />
@@ -48,6 +55,8 @@ function Input({ type = "text", value = "", setValue }) {
 
 Input.propTypes = {
     type: PropTypes.string,
+    id: PropTypes.string,
+    placeholder: PropTypes.string,
     value: PropTypes.string,
     setValue: PropTypes.func.isRequired,
 };

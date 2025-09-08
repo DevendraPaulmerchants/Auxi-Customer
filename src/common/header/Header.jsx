@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 function Header() {
     
   return (
-    <header className="flex justify-between items-center px-8 py-3 bg-[linear-gradient(to_right,#1a1818,rgba(38,38,38,0.2))]">
+    <header className="flex justify-between items-center px-4 sm:px-8 py-3 bg-[linear-gradient(to_right,#1a1818,rgba(38,38,38,0.2))]">
         <div className='h-13'>
           <Link to='/'>
             <img src={AdminLogo} alt='Company Logo' className='h-full w-full object-fill'/>

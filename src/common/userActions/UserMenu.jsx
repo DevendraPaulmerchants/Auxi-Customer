@@ -5,22 +5,24 @@ import Menu from '@mui/joy/Menu';
 import MenuButton from '@mui/joy/MenuButton';
 import MenuItem from '@mui/joy/MenuItem';
 import { AuthContext } from '../../context/AuthContext';
+import { Link } from 'react-router-dom';
 
 function UserMenu() {
     const { setIsLogin } = useContext(AuthContext);
 
-    const handleLogOut=()=>{
-setIsLogin(false)
+    const handleLogOut = () => {
+        setIsLogin(false)
     }
+    
     return (
         <Dropdown>
             <MenuButton>
                 <TbUserCircle fontSize={28} color='#083863' />
             </MenuButton>
             <Menu>
-                <MenuItem>Profile</MenuItem>
-                <MenuItem>Account</MenuItem>
-                <MenuItem onClick={()=>handleLogOut()} >Logout</MenuItem>
+                <MenuItem><Link to='/portfolio'>Portfolio</Link></MenuItem>
+                <MenuItem><Link to='/transactions'>Transactions</Link></MenuItem>
+                <MenuItem onClick={() => handleLogOut()} >Logout</MenuItem>
             </Menu>
         </Dropdown>
     )
