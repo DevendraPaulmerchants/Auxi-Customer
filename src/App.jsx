@@ -4,15 +4,17 @@ import { Suspense, lazy } from 'react'
 import { AuthProvider } from './context/AuthContext';
 import ScrollToTop from './common/scrolltotop/ScrollToTop';
 import ProtectedRoute from './route/ProtectedRoute';
+import TermAndCondition from './pages/term-and-condition/TermAndCondition';
 
 const LogIn = lazy(() => import('./authentication/login/LogIn'));
-const Header = lazy(() => import('./common/header/Header'));
+const Layout = lazy(() => import('./ui/layout/Layout'));
+
 const Home = lazy(() => import('./pages/home/Home'));
 const PartnerWithUs = lazy(() => import('./pages/partner-with-us/PartnerWithUs'));
-const Footer = lazy(() => import('./common/footer/Footer'));
-const Transaction = lazy(() => import('./pages/transactions/Transaction'));
-const Layout = lazy(() => import('./ui/layout/Layout'));
 const Portfolio = lazy(() => import('./pages/portfolio/Portfolio'));
+const Account = lazy(() => import('./pages/account/Account'));
+const Transaction = lazy(() => import('./pages/transactions/Transaction'));
+
 const ContactUs = lazy(() => import('./common/contactus/ContactUs'));
 const AboutUs = lazy(() => import('./common/aboutus/AboutUs'));
 const PrivacyPolicy = lazy(() => import('./common/privacy-policy/PrivacyPolicy'));
@@ -23,7 +25,6 @@ function App() {
       <BrowserRouter>
         <ScrollToTop />
         <Suspense fallback={<p>Loading...</p>}>
-          <Header />
           <Routes>
             <Route path="/login" element={<LogIn />} />
             <Route element={<Layout />}>
@@ -32,11 +33,20 @@ function App() {
               <Route path="/contact-us" element={<ContactUs />} />
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-and-conditions" element={<TermAndCondition />} />
               <Route
                 path="/portfolio"
                 element={
                   <ProtectedRoute>
                     <Portfolio />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/account"
+                element={
+                  <ProtectedRoute>
+                    <Account />
                   </ProtectedRoute>
                 }
               />
@@ -50,7 +60,6 @@ function App() {
               />
             </Route>
           </Routes>
-          <Footer />
         </Suspense>
       </BrowserRouter>
     </AuthProvider>

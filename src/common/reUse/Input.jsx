@@ -1,7 +1,7 @@
 
 import PropTypes from "prop-types";
 
-function Input({ type = "text",id='',placeholder='', value = "", setValue }) {
+function Input({ type = "text", id = '', placeholder = '', value = "", setValue }) {
     if (type === "tel") {
         return (
             <input
@@ -16,7 +16,7 @@ function Input({ type = "text",id='',placeholder='', value = "", setValue }) {
                 placeholder="Enter 10-digit mobile number"
                 value={value}
                 onChange={(e) => {
-                    const newValue = e.target.value.replace(/\D/g, ""); 
+                    const newValue = e.target.value.replace(/\D/g, "");
                     if (newValue.length <= 10) setValue(newValue);
                 }}
             />

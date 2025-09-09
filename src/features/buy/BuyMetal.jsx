@@ -24,7 +24,7 @@ function BuyMetal({metal,rate}) {
                 </div>
                 <div>
                     <p className="text-gray-500">Purity</p>
-                    <p className="font-medium">24K 99.99%</p>
+                    <p className="font-medium">{metal === "AU" ? '24K':''} 99.99%</p>
                 </div>
             </div>
             <form className="bg-[var(--primary-color)] text-white rounded-b-lg p-5"

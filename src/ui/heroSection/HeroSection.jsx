@@ -30,7 +30,7 @@ function HeroSection() {
     const [index, setIndex] = useState(1);
 
     return (
-        <div className='flex justify-center flex-wrap lg:flex-nowrap  gap-10'>
+        <div className='flex justify-center flex-wrap lg:flex-nowrap gap-10'>
             <div className='md:mt-2 lg:w-[calc(60%)]'>
                 <h2 className='text-[24px] md:text-[40px] font-semibold text-[var(--primary-color)]'>Buy 24K Gold in 24 Seconds.</h2>
                 <p className='md:text[21px] text-[var(--primary-color)]'><b>14,135</b> transactions in the last 1 hour.

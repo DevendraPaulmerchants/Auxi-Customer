@@ -20,13 +20,13 @@ function ContactUs() {
     };
 
     return (
-        <div className='flex justify-between gap-10 py-4'>
-            <div className='w-1/2 h-[500px] flex items-center justify-center bg-[rgba(38,38,38,0.09)] rounded-lg'>
+        <div className='flex flex-wrap md:flex-nowrap lg:flex-nowrap justify-between gap-10 py-4'>
+            <div className='md:w-1/2 lg:w-1/2 h-[200px] md:h-[500px] flex items-center justify-center bg-[rgba(38,38,38,0.09)] rounded-lg'>
                 <div className=''>
-                    <img src={PaulGoldImage} alt="Company Logo" className='object-fill h-[400px] w-[400px]' />
+                    <img src={PaulGoldImage} alt="Company Logo" className='object-fill md:h-[400px] w-[400px] h-[150px]' />
                 </div>
             </div>
-            <div className='w-1/2 border px-6 pt-2 border-[rgba(38,38,38,0.5)] rounded-lg'>
+            <div className='w-full md:w-1/2 lg:w-1/2 border px-6 pb-4 pt-2 border-[rgba(38,38,38,0.5)] rounded-lg'>
                 <button onClick={() => navigate(-1)} className='text-[var(--primary-color)] cursor-pointer'><MdOutlineKeyboardBackspace size={30} /></button>
                 <h2 className='text-2xl font-bold mb-4 text-[var(--primary-color)]'>Contact Us</h2>
                 <form onSubmit={handleSubmit} className=''>

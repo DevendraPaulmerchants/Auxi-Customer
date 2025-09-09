@@ -21,6 +21,7 @@ function UserMenu() {
             </MenuButton>
             <Menu>
                 <MenuItem><Link to='/portfolio'>Portfolio</Link></MenuItem>
+                <MenuItem><Link to='/account'>Account</Link></MenuItem>
                 <MenuItem><Link to='/transactions'>Transactions</Link></MenuItem>
                 <MenuItem onClick={() => handleLogOut()} >Logout</MenuItem>
             </Menu>
@@ -28,4 +29,4 @@ function UserMenu() {
     )
 }
 
-export default UserMenu
+export default UserMenu;

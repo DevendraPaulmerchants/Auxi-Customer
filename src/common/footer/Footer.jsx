@@ -9,7 +9,7 @@ function Footer() {
     return (
         <div className='bg-[#1a1818]'>
             <div className='flex p-6 gap-8'>
-                <div className=''>
+                <div className='hidden md:block lg:block w-[150px]'>
                     <img src={FooterLogo} alt='Paul Gold' />
                 </div>
                 <div className='flex justify-between flex-wrap gap-8'>
@@ -21,9 +21,10 @@ function Footer() {
                             border: '1px solid var(--gold-color)',
                             margin: '10px 0'
                         }} />
-                        <Link to='/contact-us' className='text-[rgba(255,255,255,0.6)] block hover:bg-[rgba(38,38,38,0.8)] p-2'>Contact Us</Link>
-                        <Link to='/about-us' className='text-[rgba(255,255,255,0.6)] block hover:bg-[rgba(38,38,38,0.8)] p-2'>About Us</Link>
-                        <Link to='/privacy-policy' className='text-[rgba(255,255,255,0.6)] block hover:bg-[rgba(38,38,38,0.8)] p-2'>Privacy Policy</Link>
+                        <Link to='/contact-us' className='text-[rgba(255,255,255,0.6)] block hover:bg-[rgba(38,38,38,0.8)] p-1'>Contact Us</Link>
+                        <Link to='/about-us' className='text-[rgba(255,255,255,0.6)] block hover:bg-[rgba(38,38,38,0.8)] p-1'>About Us</Link>
+                        <Link to='/privacy-policy' className='text-[rgba(255,255,255,0.6)] block hover:bg-[rgba(38,38,38,0.8)] p-1'>Privacy Policy</Link>
+                        <Link to='/terms-and-conditions' className='text-[rgba(255,255,255,0.6)] block hover:bg-[rgba(38,38,38,0.8)] p-1'>Terms & Conditions</Link>
                     </div>
                     <div className='flex-1 min-w-[200px]'>
                         <h2 className='text-[var(--footer-title-color)] text-xl pb-4'>Email</h2>
