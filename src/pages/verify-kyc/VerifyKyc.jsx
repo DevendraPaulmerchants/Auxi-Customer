@@ -2,22 +2,23 @@ import React, { useState } from 'react';
 import Button from '../../common/reUse/Button';
 import { handlePANCardNumber } from '../../utils/helper';
 import { IoClose } from 'react-icons/io5';
+import PropTypes from "prop-types";
 
 function VerifyKyc({ close }) {
     const [panNumber, setPanNumber] = useState('');
     const [validPANCardNumber, setValidPANCardNumber] = useState(true);
     const [panFile, setPanFile] = useState(null);
 
-    // const handlePanNumberChange = (e) => setPanNumber(e.target.value);
     const handlePanFileChange = (e) => setPanFile(e.target.files[0]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Submit logic here
         if (panNumber) {
             alert(`PAN Number submitted: ${panNumber}`);
+            close()
         } else if (panFile) {
             alert(`PAN Document uploaded: ${panFile.name}`);
+            close()
         } else {
             alert('Please enter PAN number or upload PAN document.');
         }
@@ -61,3 +62,7 @@ function VerifyKyc({ close }) {
     );
 }
 export default VerifyKyc;
+
+VerifyKyc.propTypes = {
+  close: PropTypes.func.isRequired, 
+};
