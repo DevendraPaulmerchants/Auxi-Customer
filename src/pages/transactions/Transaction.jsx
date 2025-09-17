@@ -12,6 +12,7 @@ import { IoCloudDownloadOutline } from 'react-icons/io5';
 const transaction = [
     {
         transactionId: 'TxnId123456',
+        transactionType:'Buy',
         transactiondate: '06-09-2025',
         metalType: 'Gold',
         metalWeight: '0.005g',
@@ -21,6 +22,7 @@ const transaction = [
     },
     {
         transactionId: 'TxnId123456',
+        transactionType:'Buy',
         transactiondate: '06-09-2025',
         metalType: 'Silver',
         metalWeight: '0.005g',
@@ -30,6 +32,7 @@ const transaction = [
     },
     {
         transactionId: 'TxnId123456',
+        transactionType:'Sell',
         transactiondate: '06-09-2025',
         metalType: 'Gold',
         metalWeight: '0.005g',
@@ -39,6 +42,7 @@ const transaction = [
     },
     {
         transactionId: 'TxnId123456',
+        transactionType:'Sell',
         transactiondate: '06-09-2025',
         metalType: 'Silver',
         metalWeight: '0.005g',
@@ -48,6 +52,7 @@ const transaction = [
     },
     {
         transactionId: 'TxnId123456',
+        transactionType:'Buy',
         transactiondate: '06-09-2025',
         metalType: 'Gold',
         metalWeight: '0.005g',
@@ -57,6 +62,7 @@ const transaction = [
     },
     {
         transactionId: 'TxnId123456',
+        transactionType:'Sell',
         transactiondate: '06-09-2025',
         metalType: 'Silver',
         metalWeight: '0.005g',

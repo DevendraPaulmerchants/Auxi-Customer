@@ -7,7 +7,7 @@ function Layout() {
   return (
     <div>
       <Header />
-      <div className="min-h-[calc(60vh)] p-4">
+      <div className="min-h-[calc(60vh)] p-4 lg:px-12 py-4">
         <Outlet />
       </div>
       <Footer />

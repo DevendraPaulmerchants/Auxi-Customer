@@ -1,56 +1,85 @@
-import React, { useContext, useState } from 'react';
-import { BiArrowBack } from "react-icons/bi";
-import GemiGIF from '../../assets/Gemi.mp4';
-import AdminLogo from '/AdminLogo.svg';
+import React, { useContext, useEffect, useState } from 'react';
 import Input from '../../common/reUse/Input';
 import Button from '../../common/reUse/Button';
-import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
+import { formatTime } from '../../utils/helper';
 
 function LogIn() {
-    const { isLogin, setIsLogin } = useContext(AuthContext);
+    const { setIsLogin } = useContext(AuthContext);
     const [mobile, setMobile] = useState();
-    const navigate = useNavigate();
+    const [isOtpSent, setIsOtpSent] = useState(false);
+    const [time, setTime] = useState(150);
+    const [otp, setOtp] = useState();
 
-    const handleLogIn = (e) => {
+
+    useEffect(() => {
+        if (time > 0 && isOtpSent) {
+            const interval = setTimeout(() => {
+                setTime(time - 1);
+            }, 1000);
+            return () => clearTimeout(interval);
+        }
+    }, [time, isOtpSent]);
+
+
+    const handleSendOtp = (e) => {
         e.preventDefault();
-        console.log("isLogin", isLogin)
+        setIsOtpSent(true);
+        if (time > 0) return;
+        setTime(150);
+    };
+    const handleVerifyOtp = (e) => {
+        e.preventDefault();
+        console.log('OTP Verified');
         setIsLogin(true);
-        navigate('/')
     }
+
+    const handleResendOtp = (e) => {
+        e.preventDefault();
+        if (time > 0) {
+            alert(`Please wait for ${formatTime(time)} to resend OTP`);
+            return;
+        }
+        setTime(150);
+    }
+
+
     return (
-        <div className='fixed overflow-scroll top-[0px] bg-white left-[0px] w-screen h-screen z-[9]'>
-            <div className='bg-[#1a1818] place-items-center py-4 mb-8'>
-                <img src={AdminLogo} alt='Company Logo' />
-            </div>
-            <div className='flex flex-wrap md:flex-nowrap lg:flex-nowrap gap-8 mx-auto px-4 pb-10 lg:px-10 justify-center'>
-                <div className='md:w-1/2 max-w-[501px] h-[250px] w-full md:h-[480px] shadow-2xl rounded-2xl'>
-                    <video autoPlay loop muted className='object-fill w-full h-full overflow-hidden'>
-                        <source src={GemiGIF} type='video/mp4' />
-                    </video>
+        <div>
+            <p className='text-[var(--secondary-color)] text-5 mb-1'>Login or Sign Up</p>
+            <form onSubmit={handleSendOtp}>
+                <div className='mb-4 w-full'>
+                    <Input type='tel' value={mobile} setValue={setMobile} />
+                    {isOtpSent && time >= 0 &&
+                        <p className='flex justify-between px-4 pt-1'>
+                            <span>{formatTime(time)}</span>
+                            <button className='cursor-pointer underline'
+                                disabled={time > 0}
+                                onClick={handleResendOtp}
+                            >Resend OTP</button>
+                        </p>
+                    }
                 </div>
-                <div className='md:w-1/2 max-w-[500px] border p-4 border-[var(--primary-color)] rounded-2xl'>
-                    <button className='mb-4 text-[var(--primary-color)] cursor-pointer'
-                        onClick={() => navigate('/')}
-                    ><BiArrowBack size={24} /></button>
-                    <div className='px-8'>
-                        <p className='text-[var(--secondary-color)] text-5 mb-1'>Login or Sign Up</p>
-                        <form onSubmit={handleLogIn}>
-                            <div className='mb-4 w-full'>
-                                <Input type='tel' value={mobile} setValue={setMobile} />
-                            </div>
-                            <div className='text-center mt-16'>
-                                <Button>Continue</Button>
-                            </div>
-                        </form>
-                        <div className='text-center mt-4 underline '>
-                            <p className='cursor-pointer'>Terms and Conditions</p>
+                <div className='text-center mt-10'>
+                    <Button disabled={time > 0}>Send OTP</Button>
+                </div>
+            </form>
+            {isOtpSent &&
+                <div className='py-4'>
+                    <p className='text-[var(--primary-color)] mb-4'>We have sent an OTP to your mobile number</p>
+                    <h2 className='text-[var(--secondary-color)] text-5 mb-2 font-semibold'>Verify OTP</h2>
+                    <form onSubmit={handleVerifyOtp}>
+                        <div className='mb-4 w-full'>
+                            <Input type='number' value={otp} setValue={setOtp} maxLength={6} placeholder='Enter OTP' />
                         </div>
-                    </div>
+                        <div className='text-center mt-10'>
+                            <Button >Verify &amp; Proceed</Button>
+                        </div>
+                    </form>
                 </div>
-            </div>
+            }
         </div>
     )
 }
 
-export default LogIn
+export default LogIn;

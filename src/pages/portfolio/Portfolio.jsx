@@ -21,6 +21,10 @@ function Portfolio() {
     return (
         <div className=''>
             <h2 className='text-2xl font-bold mb-4 text-[var(--primary-color)]'>My Portfolio</h2>
+            <div className='flex gap-4 justify-end text-[var(--primary-color)] mb-5'>
+                <h3>Funds Balance:</h3>
+                <h3>&#8377; <b>100</b></h3>
+            </div>
             {portfolio.map((item) => (
                 <div key={item.metalType} className='border border-[var(--primary-color)] p-4 mb-4 rounded-lg shadow-md'>
                     <h3 className='text-xl font-semibold mb-2 text-[var(--primary-color)]'>{item.metalType}</h3>

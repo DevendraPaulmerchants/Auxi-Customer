@@ -3,9 +3,9 @@ import HeroSection from '../../ui/heroSection/HeroSection'
 
 function Home() {
     return (
-        <>
+        <div>
             <HeroSection />
-        </>
+        </div>
     )
 }
 

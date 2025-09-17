@@ -13,10 +13,16 @@ function ContactUs() {
     const [gender, setGender] = useState('');
 
     const navigate = useNavigate();
+    const user={
+        name:name,
+        email:email,
+        mobile:mobile,
+        gender:gender
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Form submitted:");
+        console.log("Form submitted:",user);
     };
 
     return (
@@ -32,11 +38,11 @@ function ContactUs() {
                 <form onSubmit={handleSubmit} className=''>
                     <div className='mb-4'>
                         <label className='block text-[var(--primary-color)] mb-2' htmlFor='name'>Name</label>
-                        <Input type='text' id='name' placeholder='Enter name' value={name} setValue={setName} />
+                        <Input type='text' id='name' placeholder='Enter name' value={name} setValue={setName} maxLength={30} />
                     </div>
                     <div className='mb-4'>
                         <label className='block text-[var(--primary-color)] mb-2' htmlFor='email'>Email</label>
-                        <Input type='email' id='email' value={email} setValue={setEmail} />
+                        <Input type='email' id='email' value={email} setValue={setEmail} maxLength={40} />
                     </div>
                     <div className='mb-4'>
                         <label className='block text-[var(--primary-color)] mb-2' htmlFor='mobile'>Mobile</label>

@@ -7,11 +7,25 @@ function PartnerWithUs() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
+  const user={
+    name:name,
+    email:email,
+    message:message
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert('Form submitted successfully!');
+    setName('');
+    setEmail('');
+    setMessage('');
+    console.log("Form submitted:",user);
+  }
+
   return (
-    <div>
-      <h1 className='text-center text-[var(--primary-color)]'>Partner With Us Page</h1>
-      <p className='text-center text-[var(--primary-color)]'>This is the Partner With Us page content.</p>
-        <form className="max-w-md mx-auto mt-8">
+    <div className='my-10 shadow-[15px_16px_0_0_rgba(38,38,38,0.1)] w-fit mx-auto p-4 border border-[rgba(38,38,38,0.25)] border-[1px] rounded-2xl'>
+      <h1 className='text-center font-semibold text-[var(--primary-color)]'>Let’s Do Business Together</h1>
+      <p className='text-center text-[var(--primary-color)]'>Sign up today and become part of our growing merchant community</p>
+        <form className="max-w-md mx-auto mt-8" onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-[var(--primary-color)] text-sm font-bold mb-2" htmlFor="name">
               Name  
@@ -19,7 +33,7 @@ function PartnerWithUs() {
             <Input
               id="name"
               value={name}
-              setName={setName}
+              setValue={setName}
               type="text"
               placeholder="Your Name"
               required
